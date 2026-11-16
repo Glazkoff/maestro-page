@@ -561,7 +561,7 @@ function applyTranslations(lang) {
 
   // Point documentation links at the matching language: EN lives at the docs
   // root, RU is mirrored under /ru/.
-  const docsBase = "https://airi-maestro.github.io/care-docs/";
+  const docsBase = "https://airi-maestro.github.io/maestro-docs/";
   document.querySelectorAll("[data-doc-path]").forEach((el) => {
     const path = el.getAttribute("data-doc-path");
     el.setAttribute("href", docsBase + (lang === "ru" ? "ru/" : "") + path);
