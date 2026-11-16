@@ -1,6 +1,6 @@
-# MAESTRO CARE — https://airi-maestro.github.io/
+# MAESTRO CARE — https://airi-maestro.github.io/maestro-page/
 User-agent: *
 Allow: /
 
-Sitemap: https://airi-maestro.github.io/sitemap.xml
-Sitemap: https://airi-maestro.github.io/care-docs/sitemap-index.xml
+Sitemap: https://airi-maestro.github.io/maestro-page/sitemap.xml
+Sitemap: https://airi-maestro.github.io/maestro-docs/sitemap-index.xml
