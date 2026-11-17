@@ -446,7 +446,9 @@ function initChainReveal() {
 function initCopyButtons() {
   document.querySelectorAll(".copy-btn").forEach((btn) => {
     btn.addEventListener("click", async () => {
-      const cmd = btn.getAttribute("data-cmd") || "";
+      const cmd = btn.dataset.copyFrom
+        ? document.getElementById(btn.dataset.copyFrom).textContent
+        : btn.dataset.cmd;
       try {
         if (navigator.clipboard && navigator.clipboard.writeText) {
           await navigator.clipboard.writeText(cmd);

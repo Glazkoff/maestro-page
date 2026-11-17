@@ -2908,6 +2908,24 @@ section {
   min-width: 0;
 }
 
+.install-source summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.install-source pre {
+  overflow-x: auto;
+  background: var(--terminal-bg);
+  color: var(--terminal-text);
+  padding: 1rem;
+  border-radius: var(--radius-md);
+}
+
+.install-source .copy-btn {
+  background: var(--terminal-bg);
+  color: var(--terminal-text);
+}
+
 .install-step-body h3 {
   margin: 0 0 0.35rem;
 }
