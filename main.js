@@ -124,7 +124,7 @@ function initNav() {
   toggle();
   window.addEventListener("scroll", toggle, { passive: true });
 
-  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+  document.querySelectorAll('a[href^="#"]:not([href="#hero"])').forEach((link) => {
     link.addEventListener("click", (e) => {
       const id = link.getAttribute("href");
       if (!id || id === "#") return;
@@ -512,8 +512,8 @@ function initCursorOrb() {
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   if (window.matchMedia("(hover: none)").matches) return;
 
-  const brandIcon = document.querySelector(".nav .brand-icon");
-  if (!brandIcon) return;
+  const brandMark = document.querySelector(".nav .brand-mark");
+  if (!brandMark) return;
 
   const orb = document.createElement("div");
   orb.className = "cursor-orb is-hidden";
@@ -522,7 +522,7 @@ function initCursorOrb() {
   document.documentElement.classList.add("has-cursor-orb");
 
   const homePos = () => {
-    const r = brandIcon.getBoundingClientRect();
+    const r = brandMark.getBoundingClientRect();
     return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
   };
 
