@@ -756,6 +756,146 @@ a:hover {
   min-height: 500px;
 }
 
+.hero-video-preview,
+.hero-video-mobile,
+:root[lang="ru"] .hero-visual > :is(.hero-doodles, .mascot-glow, .speech-bubble, .crystal-accent) {
+  display: none;
+}
+
+:root[lang="ru"] .hero-visual {
+  display: grid;
+  grid-template-columns: minmax(0, 36rem);
+  min-height: 0;
+}
+
+:root[lang="ru"] .hero-visual .mascot-stage--hero {
+  width: clamp(4.75rem, 8vw, 7rem);
+  justify-self: end;
+  margin-inline-end: clamp(0.75rem, 3vw, 2rem);
+  margin-block-end: -0.85rem;
+}
+
+:root[lang="ru"] .hero-video-preview {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  :root[lang="ru"] .hero-example-link {
+    display: none;
+  }
+
+  :root[lang="ru"] .hero-video-mobile {
+    display: inline-flex;
+  }
+}
+
+.hero-video-preview {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--shadow-md);
+}
+
+.hero-video-cover {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 9;
+  background: var(--terminal-bg);
+}
+
+.hero-video-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: inherit;
+}
+
+.hero-video-play {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 3.75rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition);
+}
+
+:root[data-theme="crystal"] .hero-video-play {
+  color: #0f1115;
+}
+
+.hero-video-play::before {
+  content: "";
+  margin-left: 0.22rem;
+  border-block: 0.56rem solid transparent;
+  border-left: 0.9rem solid currentColor;
+}
+
+.hero-video-preview:hover .hero-video-play {
+  transform: scale(1.08);
+}
+
+.hero-video-caption,
+.hero-video-dialog-head {
+  padding: 0.9rem 1.15rem;
+}
+
+.hero-video-caption {
+  display: block;
+}
+
+.hero-video-dialog-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+}
+
+.hero-video-caption strong {
+  font-weight: 600;
+}
+
+.hero-video-dialog {
+  width: min(72rem, calc(100% - 1.5rem));
+  max-height: calc(100dvh - 1.5rem);
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--shadow-md);
+}
+
+.hero-video-dialog::backdrop {
+  background: rgb(0 0 0 / 74%);
+}
+
+.hero-video-dialog h2 {
+  margin: 0;
+  font-size: var(--fs-body);
+  font-weight: 600;
+}
+
+.hero-video-dialog video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: calc(100dvh - 6rem);
+  background: #0f1115;
+}
+
+body:has(.hero-video-dialog[open]) {
+  overflow: hidden;
+}
+
 /* Mascot — layered for smooth, non-jerky life:
    stage (anchor) > float (vertical hover) > body (gestures) > img (breathe).
    Each transform lives on its own element so animations never fight. */

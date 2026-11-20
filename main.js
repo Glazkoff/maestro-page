@@ -753,6 +753,60 @@ function initAnalytics() {
   );
 }
 
+async function getHeroVideoSource(url) {
+  if (!/^https?:/.test(url)) return url;
+
+  try {
+    const response = await fetch(url, { headers: { Range: "bytes=0-0" } });
+    // A server without range support sends the complete MP4. Reuse it as
+    // a local source so the player can seek to any point in the recording.
+    if (response.status === 200) {
+      return URL.createObjectURL(await response.blob());
+    }
+    await response.body?.cancel();
+  } catch {
+    // Let native playback handle the URL if the range probe fails.
+  }
+  return url;
+}
+
+function initHeroVideo() {
+  const openers = document.querySelectorAll("[data-hero-video-open]");
+  const dialog = document.querySelector("#hero-video-dialog");
+  const video = dialog?.querySelector("video");
+  if (!openers.length || !video || typeof dialog.showModal !== "function") return;
+
+  let activeOpener;
+  let videoSource;
+  openers.forEach((opener) => {
+    opener.setAttribute("aria-haspopup", "dialog");
+    opener.setAttribute("aria-controls", dialog.id);
+    opener.addEventListener("click", async (event) => {
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      activeOpener = opener;
+      dialog.showModal();
+      if (!video.hasAttribute("src")) {
+        videoSource ??= getHeroVideoSource(opener.href);
+        const source = await videoSource;
+        if (!dialog.open) return;
+        if (!video.hasAttribute("src")) video.src = source;
+      }
+      video.play().catch(() => {
+        // The native controls remain available if playback is blocked.
+      });
+    });
+  });
+
+  dialog.addEventListener("click", (event) => {
+    if (event.target === dialog) dialog.close();
+  });
+  dialog.addEventListener("close", () => {
+    video.pause();
+    activeOpener?.focus({ preventScroll: true });
+  });
+}
+
 function initFeedbackModal() {
   const FORM_SRC = "https://forms.yandex.ru/u/6a35070002848f66d7bf3d27?iframe=1";
   const FORM_URL = "https://forms.yandex.ru/u/6a35070002848f66d7bf3d27";
@@ -845,6 +899,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initMascotHover();
   initMascotEasterEgg();
   initHeroParallax();
+  initHeroVideo();
   initCursorOrb();
   initAnalytics();
   initFeedbackModal();
