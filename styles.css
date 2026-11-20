@@ -2611,7 +2611,8 @@ section {
   padding: 1.6rem 1.5rem 1.5rem;
 }
 
-.evolution-step-num {
+.evolution-step-num,
+.install-step-num {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -2622,12 +2623,13 @@ section {
   background: linear-gradient(135deg, var(--accent), var(--crystal));
   color: #fff;
   font-size: 0.85rem;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1;
   box-shadow: 0 6px 16px var(--accent-glow);
 }
 
-:root[data-theme="crystal"] .evolution-step-num {
+:root[data-theme="crystal"] .evolution-step-num,
+:root[data-theme="crystal"] .install-step-num {
   color: #0f1115;
 }
 
@@ -2887,20 +2889,7 @@ section {
 
 .install-step-num {
   flex-shrink: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 34px;
-  height: 34px;
-  border-radius: 10px;
-  background: var(--text-info);
-  color: #fff;
-  font-weight: 800;
-  font-size: 0.95rem;
-}
-
-:root[data-theme="crystal"] .install-step-num {
-  color: #0f1115;
+  margin-bottom: 0;
 }
 
 .install-step-body {
@@ -2928,10 +2917,79 @@ section {
 
 .install-step-body h3 {
   margin: 0 0 0.35rem;
+  font-weight: 600;
 }
 
 .install-step-body p {
   margin: 0 0 0.85rem;
+}
+
+#install {
+  font-family: var(--font-sans);
+}
+
+#install .section-header h2,
+#install .install-connect-arrow {
+  font-weight: 600;
+}
+
+.install-grid--ui {
+  grid-template-columns: minmax(0, 36.5rem) minmax(0, 1fr);
+  gap: 3rem;
+  padding: 1.75rem;
+}
+
+.install-grid--ui .install-step-body {
+  max-width: 33.5rem;
+}
+
+.install-grid--ui .install-step-body p,
+.install-grid--ui .install-aside p {
+  text-align: justify;
+  hyphens: auto;
+}
+
+.install-grid--ui .install-step,
+.install-grid--ui .install-aside {
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.install-grid--ui .install-step + .install-step {
+  border-top: 1px solid var(--border);
+  padding-top: 1.25rem;
+}
+
+.install-grid--ui .install-step-body > p:last-child {
+  margin-bottom: 0;
+}
+
+.install-grid--ui .install-aside {
+  border-left: 1px solid var(--border);
+  padding-left: 1.75rem;
+}
+
+.install-grid--ui .install-aside h3 {
+  margin: 0 0 0.35rem;
+  font-size: var(--fs-subheading);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.install-grid--ui .install-aside p {
+  margin: 0 0 1.25rem;
+  font-size: var(--fs-body);
+}
+
+.install-aside-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.85rem;
 }
 
 .code-block {
@@ -3840,6 +3898,12 @@ section {
 
   .install-grid {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .install-grid--ui .install-aside {
+    border-top: 1px solid var(--border);
+    border-left: 0;
+    padding: 1.75rem 0 0;
   }
 
   .benefits-grid {
