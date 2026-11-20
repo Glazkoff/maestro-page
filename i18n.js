@@ -165,8 +165,8 @@ const TRANSLATIONS = {
     "step.s3.instruction":
       "распарсить текст в форму QuarterlyFinancials: числа — в единицах валюты, неуверенные поля пропускать, а не угадывать",
     "install.title": "Установка MAESTRO UI",
-    "install.s1.title": "Запусти приложение из исходников",
-    "install.s1.desc": "Понадобятся Git, uv, Python 3.12 или 3.13, Node.js 24 и pnpm 11.7.0. Открой терминал в папке, где будут лежать приложение и среда выполнения агента.",
+    "install.s1.title": "Установи и запусти MAESTRO UI",
+    "install.s1.desc": "Установи Git, uv, Node.js 24 и pnpm. Мастер скачает MAESTRO UI и соберёт среду выполнения агента. Когда установка завершится, запусти приложение командой maestro app.",
     "install.commands": "Команды установки и запуска",
     "install.s2.title": "Выбери папку проекта и модель",
     "install.s2.desc": "В окне MAESTRO выбери папку для работы. Открой «Настройки → Модель чата», выбери провайдера и модель, введи API-ключ в поле настроек.",
@@ -402,8 +402,8 @@ const TRANSLATIONS = {
     "step.s3.instruction":
       "parse the text into the QuarterlyFinancials shape: raw values in currency units, omit uncertain fields rather than guessing",
     "install.title": "Install MAESTRO UI",
-    "install.s1.title": "Run the desktop app from source",
-    "install.s1.desc": "Install Git, uv, Python 3.12 or 3.13, Node.js 24 and pnpm 11.7.0. Open a terminal in the directory where you want to keep the app and its agent runtime.",
+    "install.s1.title": "Install and start MAESTRO UI",
+    "install.s1.desc": "Install Git, uv, Node.js 24 and pnpm. The wizard downloads MAESTRO UI and builds the agent runtime. When installation finishes, run maestro app.",
     "install.commands": "Install and launch commands",
     "install.s2.title": "Choose a project folder and a model",
     "install.s2.desc": "Choose a working folder in the MAESTRO window. Open Settings → Chat model, choose a provider and model, and enter your API key in the settings field.",

@@ -1663,18 +1663,12 @@
             <li class="install-step">
               <span class="install-step-num">1</span>
               <div class="install-step-body">
-                <h3 data-i18n="install.s1.title">Запусти приложение из исходников</h3>
-                <p data-i18n="install.s1.desc">Понадобятся Git, uv, Python 3.12 или 3.13, Node.js 24 и pnpm 11.7.0. Открой терминал в папке, где будут лежать приложение и среда выполнения агента.</p>
+                <h3 data-i18n="install.s1.title">Установи и запусти MAESTRO UI</h3>
+                <p data-i18n="install.s1.desc">Установи Git, uv, Node.js 24 и pnpm. Мастер скачает MAESTRO UI и соберёт среду выполнения агента. Когда установка завершится, запусти приложение командой maestro app.</p>
                 <details class="install-source">
                   <summary data-i18n="install.commands">Команды установки и запуска</summary>
-                  <pre><code id="install-commands">git clone https://github.com/AIRI-MAESTRO/maestro-ui.git
-cd maestro-ui
-uv sync --python 3.12 --extra desktop
-git clone https://github.com/deepseek-ai/deepseek-harness ../deepseek-harness
-git -C ../deepseek-harness checkout dd6322d604e00eec1ba5e0c8541159906a21094a
-pnpm -C ../deepseek-harness install --frozen-lockfile
-pnpm -C ../deepseek-harness run build
-uv run maestro app --dsh-source ../deepseek-harness</code></pre>
+                  <pre><code id="install-commands">uvx --refresh maestro-install install
+maestro app</code></pre>
                   <button class="copy-btn" type="button" data-copy-from="install-commands">
                     <span class="copy-label" data-i18n="install.copy">Копировать</span>
                   </button>
