@@ -54,7 +54,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=37" />
+    <link rel="stylesheet" href="styles.css?v=38" />
     <script>
       (function () {
         var VALID = ["warm", "crystal"];
@@ -171,7 +171,7 @@
           <li><a href="#benefits" data-i18n="nav.benefits">Преимущества</a></li>
           <li><a href="#stack" data-i18n="nav.stack">Стек</a></li>
           <li><a href="#demo" data-i18n="nav.demo">Демо</a></li>
-          <li><a href="#install" data-i18n="nav.install">Установка</a></li>
+          <li><a href="#skill" data-i18n="nav.install">Установка</a></li>
           <li class="nav-links-cta">
             <a
               href="https://github.com/AIRI-MAESTRO/maestro-ui"
@@ -338,18 +338,12 @@
                 >Смотреть видео</a
               >
               <a
-                href="#install"
+                href="#skill"
                 class="btn btn-secondary btn-lg"
                 data-i18n="hero.cta.secondary"
                 >Установить</a
               >
             </div>
-            <a
-              href="#skill"
-              class="btn btn-secondary btn-lg hero-actions-skill"
-              data-i18n="hero.cta.skill"
-              >Добавить как навык в кодинговый агент</a
-            >
           </div>
           <div class="hero-stats">
             <div class="stat">
@@ -1653,64 +1647,6 @@
       </div>
     </section>
 
-    <section id="install" class="install">
-      <div class="container">
-        <div class="section-header reveal">
-          <h2 data-i18n="install.title">Установка MAESTRO UI</h2>
-        </div>
-        <div class="install-grid install-grid--ui surface-panel reveal">
-          <ol class="install-steps">
-            <li class="install-step">
-              <span class="install-step-num">1</span>
-              <div class="install-step-body">
-                <h3 data-i18n="install.s1.title">Установи и запусти MAESTRO UI</h3>
-                <p data-i18n="install.s1.desc">Установи Git, uv, Node.js 24 и pnpm. Мастер скачает MAESTRO UI и соберёт среду выполнения агента. После установки проверь, что ~/.local/bin есть в PATH, и выполни maestro app.</p>
-                <details class="install-source">
-                  <summary data-i18n="install.commands">Команды установки и запуска</summary>
-                  <pre><code id="install-commands">uvx --refresh maestro-install install
-maestro app</code></pre>
-                  <button class="copy-btn" type="button" data-copy-from="install-commands">
-                    <span class="copy-label" data-i18n="install.copy">Копировать</span>
-                  </button>
-                </details>
-              </div>
-            </li>
-            <li class="install-step">
-              <span class="install-step-num">2</span>
-              <div class="install-step-body">
-                <h3 data-i18n="install.s2.title">Выбери папку проекта и модель</h3>
-                <p data-i18n="install.s2.desc">В окне MAESTRO выбери папку для работы. Открой «Настройки → Модель чата», выбери провайдера и модель, введи API-ключ в поле настроек.</p>
-              </div>
-            </li>
-            <li class="install-step">
-              <span class="install-step-num">3</span>
-              <div class="install-step-body">
-                <h3 data-i18n="install.s3.title">Проверь агента на примере</h3>
-                <p data-i18n="install.s3.desc">В новой сессии напиши: «Собери агента, который извлекает сумму и валюту из чека. Для строки „Итого 450 ₽“ ожидаю 450 и RUB». Ответь на уточнения, подтверди сборку и попроси проверить другой чек.</p>
-              </div>
-            </li>
-          </ol>
-          <aside class="install-aside">
-            <h3 data-i18n="install.aside.title">Готовые сборки</h3>
-            <p data-i18n="install.aside.desc">Проверь раздел Releases для своей системы. Если сборка доступна, скачай и распакуй архив, открой MAESTRO и переходи к шагу 2.</p>
-            <div class="install-aside-links">
-              <a class="pillar-link" href="https://github.com/AIRI-MAESTRO/maestro-ui" data-i18n="install.repository">MAESTRO UI на GitHub</a>
-              <a class="pillar-link" href="https://airi-maestro.github.io/maestro-docs/ru/care/getting-started/quick-start/" data-doc-path="care/getting-started/quick-start/" data-i18n="install.docs">Как работать в MAESTRO UI</a>
-            </div>
-          </aside>
-        </div>
-
-        <div class="install-connect-cta reveal">
-          <a href="#skill" class="btn btn-secondary install-connect btn-lg">
-            <span data-i18n="install.connectskill"
-              >Подключить в Claude Code / Hermes / Codex / OpenClaw</span
-            >
-            <span class="install-connect-arrow" aria-hidden="true">↓</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
     <section id="skill" class="install skill-install">
       <div class="container">
         <div class="section-header reveal">
@@ -1786,7 +1722,7 @@ maestro app</code></pre>
               <li>
                 <span class="req-dot"></span
                 ><span data-i18n="skill.req1"
-                  >Нужна рабочая команда maestro (шаги выше)</span
+                  >Команда maestro должна быть доступна в PATH</span
                 >
               </li>
               <li>
@@ -1842,6 +1778,55 @@ maestro app</code></pre>
               rel="noopener"
               >Документация по навыку</a
             >
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="install" class="install">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2 data-i18n="install.title">Используй MAESTRO как отдельного агента</h2>
+        </div>
+        <div class="install-grid install-grid--ui surface-panel reveal">
+          <ol class="install-steps">
+            <li class="install-step">
+              <span class="install-step-num">1</span>
+              <div class="install-step-body">
+                <h3 data-i18n="install.s1.title">Установи и запусти MAESTRO UI</h3>
+                <p data-i18n="install.s1.desc">Установи Git, uv, Node.js 24 и pnpm. Мастер скачает MAESTRO UI и соберёт среду выполнения агента. После установки проверь, что ~/.local/bin есть в PATH, и выполни maestro app.</p>
+                <details class="install-source">
+                  <summary data-i18n="install.commands">Команды установки и запуска</summary>
+                  <pre><code id="install-commands">uvx --refresh maestro-install install
+maestro app</code></pre>
+                  <button class="copy-btn" type="button" data-copy-from="install-commands">
+                    <span class="copy-label" data-i18n="install.copy">Копировать</span>
+                  </button>
+                </details>
+              </div>
+            </li>
+            <li class="install-step">
+              <span class="install-step-num">2</span>
+              <div class="install-step-body">
+                <h3 data-i18n="install.s2.title">Выбери папку проекта и модель</h3>
+                <p data-i18n="install.s2.desc">В окне MAESTRO выбери папку для работы. Открой «Настройки → Модель чата», выбери провайдера и модель, введи API-ключ в поле настроек.</p>
+              </div>
+            </li>
+            <li class="install-step">
+              <span class="install-step-num">3</span>
+              <div class="install-step-body">
+                <h3 data-i18n="install.s3.title">Проверь агента на примере</h3>
+                <p data-i18n="install.s3.desc">В новой сессии напиши: «Собери агента, который извлекает сумму и валюту из чека. Для строки „Итого 450 ₽“ ожидаю 450 и RUB». Ответь на уточнения, подтверди сборку и попроси проверить другой чек.</p>
+              </div>
+            </li>
+          </ol>
+          <aside class="install-aside">
+            <h3 data-i18n="install.aside.title">Готовые сборки</h3>
+            <p data-i18n="install.aside.desc">Проверь раздел Releases для своей системы. Если сборка доступна, скачай и распакуй архив, открой MAESTRO и переходи к шагу 2.</p>
+            <div class="install-aside-links">
+              <a class="pillar-link" href="https://github.com/AIRI-MAESTRO/maestro-ui" data-i18n="install.repository">MAESTRO UI на GitHub</a>
+              <a class="pillar-link" href="https://airi-maestro.github.io/maestro-docs/ru/care/getting-started/quick-start/" data-doc-path="care/getting-started/quick-start/" data-i18n="install.docs">Как работать в MAESTRO UI</a>
+            </div>
           </aside>
         </div>
       </div>
@@ -2331,7 +2316,7 @@ maestro app</code></pre>
       <video controls playsinline preload="none" aria-label="Демонстрация MAESTRO"></video>
     </dialog>
 
-    <script src="i18n.js?v=26"></script>
+    <script src="i18n.js?v=27"></script>
     <script src="main.js?v=29"></script>
   </body>
 </html>
