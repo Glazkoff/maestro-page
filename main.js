@@ -776,6 +776,12 @@ function initHeroVideo() {
   const video = dialog?.querySelector("video");
   if (!openers.length || !video || typeof dialog.showModal !== "function") return;
 
+  const playVideo = () => {
+    video.play().catch(() => {
+      // The native controls remain available if playback is blocked.
+    });
+  };
+
   let activeOpener;
   let videoSource;
   openers.forEach((opener) => {
@@ -792,10 +798,22 @@ function initHeroVideo() {
         if (!dialog.open) return;
         if (!video.hasAttribute("src")) video.src = source;
       }
-      video.play().catch(() => {
-        // The native controls remain available if playback is blocked.
-      });
+      playVideo();
     });
+  });
+
+  dialog.addEventListener("keydown", (event) => {
+    if (event.key !== " " || event.defaultPrevented || !dialog.open) return;
+    if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+    if (event.target.closest("button")) return;
+
+    event.preventDefault();
+    if (event.repeat || !video.hasAttribute("src")) return;
+    if (video.paused) {
+      playVideo();
+    } else {
+      video.pause();
+    }
   });
 
   dialog.addEventListener("click", (event) => {
